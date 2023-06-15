@@ -1,5 +1,7 @@
 package br.com.envolvedesenvolve.cscolecaodeskins.model;
 
+import java.util.List;
+
 public class Skin {
 
     private int id;
@@ -9,6 +11,7 @@ public class Skin {
     private long instanceid;
     private String image;
     private String imageLarge;
+    private List<Skin> listString;
 
     public int getId() {
         return id;
@@ -64,5 +67,13 @@ public class Skin {
 
     public void setImageLarge(String imageLarge) {
         this.imageLarge = imageLarge;
+    }
+
+    public List<Skin> getListString() {
+        return listString;
+    }
+
+    public void setListString(List<Skin> listString) {
+        this.listString = listString;
     }
 }

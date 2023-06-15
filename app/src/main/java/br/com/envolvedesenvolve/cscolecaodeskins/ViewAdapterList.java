@@ -36,7 +36,7 @@ public class ViewAdapterList extends RecyclerView.Adapter<ViewAdapterList.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String image = listaItens.get(position).getImage();
+//        String image = listaItens.get(position).getImage();
 //        Log.e(TAG, "onBindViewHolder image: " + image);
         holder.itemTextView.setText(listaItens.get(position).getName());
         Picasso.get().load(URL_IMAGE+listaItens.get(position).getImage()).error(R.mipmap.ic_launcher).into(holder.itemImageView);

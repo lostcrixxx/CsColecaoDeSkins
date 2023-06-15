@@ -52,53 +52,7 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.recycler_view);
 
-        StringRequest stringRequest = new StringRequest(LIST_URL,
-                new com.android.volley.Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.e(TAG, "sendRequest() onResponse: " + response);
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray data = jsonObject.getJSONArray(KEY_DATA);
-                            listString = new ArrayList<>();
 
-                            for (int i = 0; i < data.length(); i++) {
-                                JSONObject jo = data.getJSONObject(i);
-                                Skin skin = new Skin();
-
-                                if (!jo.getString(KEY_IMAGE).equals(""))
-                                    skin.setImage(jo.getString(KEY_IMAGE));
-                                skin.setName(jo.getString(KEY_NAME));
-                                listString.add(skin);
-//                                txtName.setText(jo.getString(KEY_NAME));
-//                                if(!jo.getString(KEY_IMAGE).equals(""))
-//                                urlSkin = jo.getString(KEY_IMAGE);
-                            }
-
-                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                            adapterList = new ViewAdapterList(listString);
-                            recyclerView.setAdapter(adapterList);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e(TAG, "ERRO stringRequest " + error.toString());
-                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-        int socketTimeout = 30000; // 30 seconds. You can change it
-        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-
-        stringRequest.setRetryPolicy(policy);
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
 
         return view;
     }
