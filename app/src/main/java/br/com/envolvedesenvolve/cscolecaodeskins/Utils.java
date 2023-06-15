@@ -19,10 +19,10 @@ public class Utils {
         return instance;
     }
 
-    private List<Skin> filterList(List<Skin> list, String typeFilter){
+    public List<Skin> filterList(List<Skin> list, String typeFilter){
         List<Skin> filteredList = new ArrayList<>();
             for(Skin item : list){
-                if(item.getName().toLowerCase().contains(typeFilter.toLowerCase()))
+                if(item.getType().toLowerCase().contains(typeFilter.toLowerCase()))
                     filteredList.add(item);
             }
         return filteredList;

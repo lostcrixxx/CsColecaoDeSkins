@@ -2,7 +2,10 @@ package br.com.envolvedesenvolve.cscolecaodeskins;
 
 import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_DATA;
 import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_IMAGE;
+import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_IMAGE_LARGE;
 import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_NAME;
+import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_TYPE;
+import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_WEAR;
 import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.LIST_URL;
 
 import android.os.Bundle;
@@ -107,9 +110,13 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject jo = data.getJSONObject(i);
                                 Skin skin = new Skin();
 
+                                skin.setName(jo.getString(KEY_NAME));
                                 if (!jo.getString(KEY_IMAGE).equals(""))
                                     skin.setImage(jo.getString(KEY_IMAGE));
-                                skin.setName(jo.getString(KEY_NAME));
+                                if (!jo.getString(KEY_IMAGE_LARGE).equals(""))
+                                    skin.setImageLarge(jo.getString(KEY_IMAGE_LARGE));
+                                skin.setWear(jo.getString(KEY_WEAR));
+                                skin.setType(jo.getString(KEY_TYPE));
                                 skinList.add(skin);
 //                                txtName.setText(jo.getString(KEY_NAME));
 //                                if(!jo.getString(KEY_IMAGE).equals(""))

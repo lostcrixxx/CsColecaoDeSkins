@@ -14,6 +14,7 @@ import java.util.List;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.ListSingleton;
 import br.com.envolvedesenvolve.cscolecaodeskins.R;
+import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.ViewAdapterList;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
@@ -37,7 +38,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void run() {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                adapterList = new ViewAdapterList(ListSingleton.getInstance().getSkinList());
+                adapterList = new ViewAdapterList(Utils.getInstance().filterList(ListSingleton.getInstance().getSkinList(), "Adesivo (Extraordinário)"));
                 recyclerView.setAdapter(adapterList);
             }
         },4000);

@@ -9,6 +9,10 @@ public class Skin {
     private long instanceid;
     private String image;
     private String imageLarge;
+    private String wear;
+    private String type;
+    private String description;
+    private String collection;
 
     public int getId() {
         return id;
@@ -64,6 +68,39 @@ public class Skin {
 
     public void setImageLarge(String imageLarge) {
         this.imageLarge = imageLarge;
+    }
+
+
+    public String getWear() {
+        return wear;
+    }
+
+    public void setWear(String wear) {
+        this.wear = wear;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCollection() {
+        return collection;
+    }
+
+    public void setCollection(String collection) {
+        this.collection = collection;
     }
 
 }
