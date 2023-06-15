@@ -1,6 +1,5 @@
-package br.com.envolvedesenvolve.cscolecaodeskins;
+package br.com.envolvedesenvolve.cscolecaodeskins.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import br.com.envolvedesenvolve.cscolecaodeskins.R;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
 public class ViewAdapterList extends RecyclerView.Adapter<ViewAdapterList.ViewHolder> {

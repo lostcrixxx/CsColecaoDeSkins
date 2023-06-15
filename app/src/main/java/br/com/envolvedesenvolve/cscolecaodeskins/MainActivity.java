@@ -12,10 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -32,8 +30,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import br.com.envolvedesenvolve.cscolecaodeskins.adapter.MyViewPageAdapter;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
+
+/**
+ * created by Cristiano M. on 2023-06-15
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray data = jsonObject.getJSONArray(KEY_DATA);
-                            listString = new ArrayList<>();
+                            List<Skin> skinList = new ArrayList<>();
 
                             for (int i = 0; i < data.length(); i++) {
                                 JSONObject jo = data.getJSONObject(i);
@@ -106,12 +110,12 @@ public class MainActivity extends AppCompatActivity {
                                 if (!jo.getString(KEY_IMAGE).equals(""))
                                     skin.setImage(jo.getString(KEY_IMAGE));
                                 skin.setName(jo.getString(KEY_NAME));
-                                listString.add(skin);
+                                skinList.add(skin);
 //                                txtName.setText(jo.getString(KEY_NAME));
 //                                if(!jo.getString(KEY_IMAGE).equals(""))
 //                                urlSkin = jo.getString(KEY_IMAGE);
                             }
-
+                            ListSingleton.getInstance().setSkinList(skinList);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

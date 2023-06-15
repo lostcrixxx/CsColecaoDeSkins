@@ -1,4 +1,4 @@
-package br.com.envolvedesenvolve.cscolecaodeskins;
+package br.com.envolvedesenvolve.cscolecaodeskins.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
