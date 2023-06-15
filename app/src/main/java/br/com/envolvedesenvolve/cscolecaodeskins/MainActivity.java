@@ -7,11 +7,14 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean isNightModeOn;
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
@@ -21,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
+            isNightModeOn = false;
+        } else if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            isNightModeOn = true;
+        }
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager2 = findViewById(R.id.view_pager);
@@ -62,12 +71,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-//w
 
-        if (id == R.id.action_exit) {
-            this.finish();
+        switch (id) {
+            case R.id.action_settings:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                isNightModeOn = true;
+                break;
+            case R.id.action_rate:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                isNightModeOn = false;
+                break;
+            case R.id.action_exit:
+                this.finish();
+                break;
+            default:
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

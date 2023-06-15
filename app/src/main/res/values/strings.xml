@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CS: Coleção de Skins</string>
+
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_rate">Rate</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_exit">Sair</string>
 </resources>
