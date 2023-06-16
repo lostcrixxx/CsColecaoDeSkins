@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import br.com.envolvedesenvolve.cscolecaodeskins.view.AboutFragment;
-import br.com.envolvedesenvolve.cscolecaodeskins.view.HomeFragment;
-import br.com.envolvedesenvolve.cscolecaodeskins.view.SettingsFragment;
+import br.com.envolvedesenvolve.cscolecaodeskins.view.TableFragment;
 
 public class MyViewPageAdapter extends FragmentStateAdapter {
 
@@ -18,20 +16,38 @@ public class MyViewPageAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        String type = "";
         switch (position) {
             case 0:
-                return new HomeFragment();
+                type = "Adesivo";
+                break;
             case 1:
-                return new AboutFragment();
+                type = "Faca";
+                break;
             case 2:
-                return new SettingsFragment();
-            default:
-                return new HomeFragment();
+                type = "Rifle";
+                break;
+            case 3:
+                type = "Luvas";
+                break;
+            case 4:
+                type = "Recipiente";
+                break;
+            case 5:
+                type = "Pistola";
+                break;
+            case 6:
+                type = "Escopeta";
+                break;
+            case 7:
+                type = "submetralhadora";
+                break;
         }
+        return new TableFragment(type);
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 8;
     }
 }
