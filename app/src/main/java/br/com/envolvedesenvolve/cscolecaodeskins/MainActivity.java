@@ -9,14 +9,18 @@ import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.KEY_WEAR;
 import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.LIST_URL;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -36,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.MyViewPageAdapter;
+import br.com.envolvedesenvolve.cscolecaodeskins.adapter.ViewAdapterList;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
 /**
@@ -61,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         } else if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             isNightModeOn = true;
         }
+
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager2 = findViewById(R.id.view_pager);
@@ -91,61 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.getTabAt(position).select();
             }
         });
-
-        getWebData();
     }
-
-    private void getWebData() {
-        StringRequest stringRequest = new StringRequest(LIST_URL,
-                new com.android.volley.Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.e(TAG, "sendRequest() onResponse: " + response);
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray data = jsonObject.getJSONArray(KEY_DATA);
-                            List<Skin> skinList = new ArrayList<>();
-
-                            for (int i = 0; i < data.length(); i++) {
-                                JSONObject jo = data.getJSONObject(i);
-                                Skin skin = new Skin();
-
-                                skin.setName(jo.getString(KEY_NAME));
-                                if (!jo.getString(KEY_IMAGE).equals(""))
-                                    skin.setImage(jo.getString(KEY_IMAGE));
-                                if (!jo.getString(KEY_IMAGE_LARGE).equals(""))
-                                    skin.setImageLarge(jo.getString(KEY_IMAGE_LARGE));
-                                skin.setWear(jo.getString(KEY_WEAR));
-                                skin.setType(jo.getString(KEY_TYPE));
-                                skinList.add(skin);
-//                                txtName.setText(jo.getString(KEY_NAME));
-//                                if(!jo.getString(KEY_IMAGE).equals(""))
-//                                urlSkin = jo.getString(KEY_IMAGE);
-                            }
-                            ListSingleton.getInstance().setSkinList(skinList);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e(TAG, "ERRO stringRequest " + error.toString());
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-        int socketTimeout = 30000; // 30 seconds. You can change it
-        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-
-        stringRequest.setRetryPolicy(policy);
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

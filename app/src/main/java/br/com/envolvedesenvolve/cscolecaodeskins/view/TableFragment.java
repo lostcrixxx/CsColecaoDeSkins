@@ -1,7 +1,6 @@
 package br.com.envolvedesenvolve.cscolecaodeskins.view;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,7 @@ public class TableFragment extends Fragment {
     private RecyclerView recyclerView;
     private ViewAdapterList adapterList;
 
-    public TableFragment(String type){
+    public TableFragment(String type) {
         this.type = type;
     }
 
@@ -35,15 +34,9 @@ public class TableFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_table, container, false);
         recyclerView = view.findViewById(R.id.recycler_view);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                adapterList = new ViewAdapterList(Utils.getInstance().filterList(ListSingleton.getInstance().getSkinList(), type));
-                recyclerView.setAdapter(adapterList);
-            }
-        },4000);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterList = new ViewAdapterList(Utils.getInstance().filterList(ListSingleton.getInstance().getSkinList(), type));
+        recyclerView.setAdapter(adapterList);
 
         return view;
     }
