@@ -70,7 +70,6 @@ public class Skin {
         this.imageLarge = imageLarge;
     }
 
-
     public String getWear() {
         return wear;
     }

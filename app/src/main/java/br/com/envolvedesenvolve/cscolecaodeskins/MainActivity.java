@@ -107,18 +107,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_size_list_skin);
+            item.setTitle("items: " + ListSingleton.getInstance().getSkinList().size() + " cadastrados");
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.action_settings:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                isNightModeOn = true;
-                break;
-            case R.id.action_rate:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                isNightModeOn = false;
-                break;
+//            case R.id.action_settings:
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                isNightModeOn = true;
+//                break;
+//            case R.id.action_rate:
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                isNightModeOn = false;
+//                break;
             case R.id.action_exit:
                 this.finish();
                 break;
