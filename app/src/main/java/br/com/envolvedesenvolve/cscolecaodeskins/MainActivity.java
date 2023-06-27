@@ -44,7 +44,7 @@ import br.com.envolvedesenvolve.cscolecaodeskins.adapter.ViewAdapterList;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
 /**
- * created by Cristiano M. on 2023-06-15
+ * created by Cristiano M. on 2023-06-26
  */
 
 public class MainActivity extends AppCompatActivity {

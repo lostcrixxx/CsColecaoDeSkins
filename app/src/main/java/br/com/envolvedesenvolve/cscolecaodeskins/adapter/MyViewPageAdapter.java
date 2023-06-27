@@ -19,28 +19,28 @@ public class MyViewPageAdapter extends FragmentStateAdapter {
         String type = "";
         switch (position) {
             case 0:
-                type = "Adesivo";
-                break;
-            case 1:
-                type = "Faca";
-                break;
-            case 2:
                 type = "Rifle";
                 break;
-            case 3:
-                type = "Luvas";
+            case 1:
+                type = "submetralhadora";
                 break;
-            case 4:
-                type = "Recipiente";
-                break;
-            case 5:
-                type = "Pistola";
-                break;
-            case 6:
+            case 2:
                 type = "Escopeta";
                 break;
+            case 3:
+                type = "Pistola";
+                break;
+            case 4:
+                type = "Faca";
+                break;
+            case 5:
+                type = "Luvas";
+                break;
+            case 6:
+                type = "Adesivo";
+                break;
             case 7:
-                type = "submetralhadora";
+                type = "Recipiente";
                 break;
         }
         return new TableFragment(type);

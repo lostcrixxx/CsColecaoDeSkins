@@ -14,42 +14,50 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Rifle" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="submetralhadora" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Escopeta" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Pistola" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Faca" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Luvas" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Adesivo" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_launcher_background" />
+            android:text="Recipiente" />
+<!--            android:icon="@drawable/ic_launcher_background" />-->
 
     </com.google.android.material.tabs.TabLayout>
 
