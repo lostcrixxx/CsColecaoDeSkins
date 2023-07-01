@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -32,12 +33,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.ListSingleton;
 import br.com.envolvedesenvolve.cscolecaodeskins.MainActivity;
 import br.com.envolvedesenvolve.cscolecaodeskins.R;
+import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
 public class SplashActivity extends AppCompatActivity {
@@ -52,6 +55,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
+        StrictMode.setThreadPolicy(policy);
 
         // Delayed start of the main activity
 //        new Handler().postDelayed(new Runnable() {
@@ -70,7 +76,16 @@ public class SplashActivity extends AppCompatActivity {
 //        simulateLongRunningProcess();
 //        progressBar();
 
-        getWebData();
+        try {
+            if (Utils.getInstance().isInternetAvailable()) {
+                getWebData();
+            } else {
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(this, "Sem INTERNET !!!", Toast.LENGTH_LONG).show();
+            }
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 
     int value = 100;
