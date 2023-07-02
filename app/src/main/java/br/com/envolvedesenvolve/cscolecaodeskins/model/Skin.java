@@ -1,6 +1,8 @@
 package br.com.envolvedesenvolve.cscolecaodeskins.model;
 
-public class Skin {
+import java.io.Serializable;
+
+public class Skin implements Serializable {
 
     private int id;
     private String name;

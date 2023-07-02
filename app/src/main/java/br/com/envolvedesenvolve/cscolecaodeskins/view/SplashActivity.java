@@ -59,22 +59,8 @@ public class SplashActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
         StrictMode.setThreadPolicy(policy);
 
-        // Delayed start of the main activity
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        }, SPLASH_DURATION);
-
         progressBar = findViewById(R.id.progressBar);
         progressText = findViewById(R.id.progressText);
-
-        // Simule um processo assíncrono que leva algum tempo para ser concluído
-//        simulateLongRunningProcess();
-//        progressBar();
 
         try {
             if (Utils.getInstance().isInternetAvailable()) {
@@ -132,7 +118,7 @@ public class SplashActivity extends AppCompatActivity {
                 new com.android.volley.Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e(TAG, "sendRequest() onResponse: " + response);
+//                        Log.e(TAG, "sendRequest() onResponse: " + response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray data = jsonObject.getJSONArray(KEY_DATA);

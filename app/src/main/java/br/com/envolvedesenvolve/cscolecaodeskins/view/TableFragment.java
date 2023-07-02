@@ -18,7 +18,6 @@ import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.ViewAdapterList;
 
 public class TableFragment extends Fragment {
-//public class TableFragment extends Fragment implements ViewAdapterList.OnItemClickListener {
 
     private final String TAG = TableFragment.class.getName();
     private String type;
@@ -44,23 +43,4 @@ public class TableFragment extends Fragment {
 
         return view;
     }
-
-//    @Override
-//    public void onItemClick(int position) {
-//        Log.e(TAG, "passed onItemClick position: " + position);
-//        // Create a new instance of YourNewFragment
-//        DetailFragment newFragment = new DetailFragment();
-//
-//        // Pass any necessary data to the new fragment using Bundle if needed
-//        Bundle args = new Bundle();
-//        args.putInt("position", position);
-//        newFragment.setArguments(args);
-//
-//        // Open the new fragment
-//        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.view_pager, newFragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-//    }
 }
