@@ -1,6 +1,8 @@
 package br.com.envolvedesenvolve.cscolecaodeskins;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private MyViewPageAdapter myViewPageAdapter;
+    private SharedPreferences prefs;
 
     public MainActivity(){}
 
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        prefs = getSharedPreferences("settings",Context.MODE_PRIVATE);
+        Utils.getInstance().MODE_COLLECTION = prefs.getBoolean("modeCollection", false);
 
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
             isNightModeOn = false;
