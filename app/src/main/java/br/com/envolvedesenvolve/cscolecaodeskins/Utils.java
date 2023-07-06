@@ -29,21 +29,17 @@ public class Utils {
     public List<Skin> filterList(List<Skin> list, String typeFilter) {
         List<Skin> filteredList = new ArrayList<>();
         for (Skin item : list) {
-            if (item.getType().toLowerCase().contains(typeFilter.toLowerCase()))
-                filteredList.add(item);
+            if (item.getName().contains("(Nova de Fábrica)") || item.getType().contains("Adesivo") || item.getType().contains("Recipiente"))
+                if (item.getType().toLowerCase().contains(typeFilter.toLowerCase()))
+                    filteredList.add(item);
         }
         return filteredList;
     }
 
     public String filterRemoveType(String item) {
+        String[] text = {"(Nova de Fábrica)", "(Pouco Usada)", "(Testada em Campo)", "(Bem Desgastada)", "(Veterana de Guerra)"};
 
-        String text1 = "(Nova de Fábrica)";
-        String text2 = "(Pouco Usada)";
-        String text3 = "(Testada em Campo)";
-        String text4 = "(Bem Desgastada)";
-        String text5 = "(Veterana de Guerra)";
-
-        return item.replace(text1, "").replace(text2, "").replace(text3, "").replace(text4, "").replace(text5, "");
+        return item.replace(text[0], "").replace(text[1], "").replace(text[2], "").replace(text[3], "").replace(text[4], "");
     }
 
     public boolean isInternetAvailable() throws UnknownHostException {
