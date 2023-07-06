@@ -1,5 +1,6 @@
 package br.com.envolvedesenvolve.cscolecaodeskins;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,9 +13,11 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.MyViewPageAdapter;
+import br.com.envolvedesenvolve.cscolecaodeskins.view.SettingsActivity;
 
 /**
  * created by Cristiano M. on 2023-06-26
+ * modified by Cristiano M. on 2023-07-05
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
     private MyViewPageAdapter myViewPageAdapter;
+
+    public MainActivity(){}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,13 +90,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (id) {
-//            case R.id.action_settings:
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 //                isNightModeOn = true;
-//                break;
+                break;
 //            case R.id.action_rate:
 //                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 //                isNightModeOn = false;

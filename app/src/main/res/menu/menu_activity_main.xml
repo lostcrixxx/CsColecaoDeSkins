@@ -4,31 +4,31 @@
 
     <item
         android:id="@+id/action_size_list_skin"
-        android:orderInCategory="100"
+        android:orderInCategory="10"
         android:title=""
         app:showAsAction="always" />
 
-<!--    <item-->
-<!--        android:id="@+id/action_settings"-->
-<!--        android:orderInCategory="100"-->
-<!--        android:title="@string/menu_settings"-->
-<!--        app:showAsAction="never" />-->
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="20"
+        android:title="@string/menu_settings"
+        app:showAsAction="never" />
 
 <!--    <item-->
 <!--        android:id="@+id/action_rate"-->
-<!--        android:orderInCategory="100"-->
+<!--        android:orderInCategory="30"-->
 <!--        android:title="@string/menu_rate"-->
 <!--        app:showAsAction="never" />-->
 
 <!--    <item-->
 <!--        android:id="@+id/action_about"-->
-<!--        android:orderInCategory="100"-->
+<!--        android:orderInCategory="40"-->
 <!--        android:title="@string/menu_about"-->
 <!--        app:showAsAction="never" />-->
 
     <item
         android:id="@+id/action_exit"
-        android:orderInCategory="100"
+        android:orderInCategory="50"
         android:title="@string/menu_exit"
         app:showAsAction="never" />
 </menu>

@@ -27,7 +27,13 @@
         <activity
             android:name=".view.DetailActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:label="Detalhes"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".view.SettingsActivity"
+            android:exported="false"
+            android:label="Configurações"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
