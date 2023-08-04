@@ -1,6 +1,7 @@
 package br.com.envolvedesenvolve.cscolecaodeskins.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,7 +15,7 @@ import br.com.envolvedesenvolve.cscolecaodeskins.R;
 public class SettingsActivity extends AppCompatActivity {
 
     private SharedPreferences prefs;
-    private Switch switchCollection;
+    private SwitchCompat switchCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
 
             switchCollection.setText(switchCollection.isChecked() ? "ON" : "OFF");
 
-            Toast.makeText(getBaseContext(), "Salvo!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Configuração salva!", Toast.LENGTH_LONG).show();
         });
     }
 }

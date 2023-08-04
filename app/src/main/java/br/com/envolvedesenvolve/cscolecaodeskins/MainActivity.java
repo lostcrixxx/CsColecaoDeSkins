@@ -19,7 +19,7 @@ import br.com.envolvedesenvolve.cscolecaodeskins.view.SettingsActivity;
 
 /**
  * created by Cristiano M. on 2023-06-26
- * modified by Cristiano M. on 2023-07-05
+ * modified by Cristiano M. on 2023-08-03
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.action_size_list_skin);
-        item.setTitle("items: " + ListSingleton.getInstance().getSkinList().size() + " cadastrados");
+//        MenuItem item = menu.findItem(R.id.action_size_list_skin);
+//        item.setTitle("items: " + ListSingleton.getInstance().getSkinList().size() + " cadastrados");
         return super.onPrepareOptionsMenu(menu);
     }
 

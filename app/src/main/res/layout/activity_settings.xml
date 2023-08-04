@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".view.SettingsActivity">
 
     <TextView
@@ -12,17 +13,16 @@
         android:layout_height="wrap_content"
         android:text="Modo coleção"
         app:layout_constraintBottom_toBottomOf="@+id/switch_settings_collection"
-        app:layout_constraintEnd_toStartOf="@+id/switch_settings_collection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/switch_settings_collection" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch_settings_collection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
