@@ -1,7 +1,12 @@
 package br.com.envolvedesenvolve.cscolecaodeskins;
 
+import android.content.Context;
 import android.util.Log;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -31,7 +36,7 @@ public class Utils {
     public List<Skin> filterList(List<Skin> list, String typeFilter) {
         List<Skin> filteredList = new ArrayList<>();
         for (Skin item : list) {
-            if (item.getName().contains("(Nova de Fábrica)") || item.getType().contains("Adesivo") || item.getType().contains("Recipiente"))
+            if (item.getName() != null && !item.getName().contains("(Field-Tested)") && !item.getName().contains("Minimal Wear") && !item.getName().contains("Well-Worn") && !item.getName().contains("Battle-Scarred"))
                 if (item.getType().toLowerCase().contains(typeFilter.toLowerCase()))
                     filteredList.add(item);
         }
@@ -55,5 +60,25 @@ public class Utils {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public void copyDatabaseToApp(Context context) throws IOException {
+        Log.e(TAG, "passed start copiarBancoDeDados()");
+        InputStream inputStream = context.getAssets().open("database.db");
+        String outFileName = context.getDatabasePath("database.db").getPath();
+
+        OutputStream outputStream = new FileOutputStream(outFileName);
+
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) > 0) {
+            outputStream.write(buffer, 0, length);
+        }
+
+        Log.e(TAG, "passed end copiarBancoDeDados()");
+        outputStream.flush();
+        outputStream.close();
+        inputStream.close();
+        Log.e(TAG, "passed close databases");
     }
 }

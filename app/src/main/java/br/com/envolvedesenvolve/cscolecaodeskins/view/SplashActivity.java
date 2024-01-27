@@ -64,7 +64,8 @@ public class SplashActivity extends AppCompatActivity {
 
         try {
             if (Utils.getInstance().isInternetAvailable()) {
-                getWebData();
+                startAppMain();
+//                getWebData();
             } else {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(this, "Sem INTERNET !!!", Toast.LENGTH_LONG).show();
@@ -128,13 +129,16 @@ public class SplashActivity extends AppCompatActivity {
                                 JSONObject jo = data.getJSONObject(i);
                                 Skin skin = new Skin();
 
-                                skin.setName(jo.getString(KEY_NAME));
+                                if (!jo.getString(KEY_NAME).equals(""))
+                                    skin.setName(jo.getString(KEY_NAME));
                                 if (!jo.getString(KEY_IMAGE).equals(""))
                                     skin.setImage(jo.getString(KEY_IMAGE));
                                 if (!jo.getString(KEY_IMAGE_LARGE).equals(""))
                                     skin.setImageLarge(jo.getString(KEY_IMAGE_LARGE));
+                                if (!jo.getString(KEY_WEAR).equals(""))
                                 skin.setWear(jo.getString(KEY_WEAR));
-                                skin.setType(jo.getString(KEY_TYPE));
+//                                if (!jo.getString(KEY_TYPE).equals(""))
+                                skin.setType(jo.has(KEY_TYPE) ? jo.getString(KEY_TYPE) : "");
                                 skinList.add(skin);
 //                                txtName.setText(jo.getString(KEY_NAME));
 //                                if(!jo.getString(KEY_IMAGE).equals(""))
@@ -142,9 +146,7 @@ public class SplashActivity extends AppCompatActivity {
                             }
                             ListSingleton.getInstance().setSkinList(skinList);
 
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            startAppMain();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -167,5 +169,11 @@ public class SplashActivity extends AppCompatActivity {
         stringRequest.setRetryPolicy(policy);
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+
+    private void startAppMain() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

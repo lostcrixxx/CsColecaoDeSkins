@@ -13,6 +13,7 @@ public class Skin implements Serializable {
     private String imageLarge;
     private String wear;
     private String type;
+    private String createdAt; // Pode ser um tipo de data ou String
     private String description;
     private String collection;
 
@@ -86,6 +87,14 @@ public class Skin implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getDescription() {

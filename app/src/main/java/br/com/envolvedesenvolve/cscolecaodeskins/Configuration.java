@@ -2,7 +2,7 @@ package br.com.envolvedesenvolve.cscolecaodeskins;
 
 public class Configuration {
 
-    public static final String APP_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyrESOlDX52GPbo27NeA-oL2v0nHT1tB75HC6AoBtQZXxt1VhoNQgbSYZg3yQc9DTNQ/exec";
+    public static final String APP_SCRIPT_WEB_APP_URL = Config.API;
     public static final String ADD_URL = APP_SCRIPT_WEB_APP_URL;
     public static final String LIST_URL = APP_SCRIPT_WEB_APP_URL+"?action=readAll";
 

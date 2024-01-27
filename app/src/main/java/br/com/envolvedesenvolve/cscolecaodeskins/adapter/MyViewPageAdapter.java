@@ -22,25 +22,28 @@ public class MyViewPageAdapter extends FragmentStateAdapter {
                 type = "Rifle";
                 break;
             case 1:
-                type = "submetralhadora";
+                type = "SMG";
                 break;
             case 2:
-                type = "Escopeta";
+                type = "Shotgun";
                 break;
             case 3:
-                type = "Pistola";
+                type = "Pistol";
                 break;
             case 4:
-                type = "Faca";
+                type = "Knife";
                 break;
             case 5:
-                type = "Luvas";
+                type = "Gloves";
                 break;
             case 6:
-                type = "Adesivo";
+                type = "Sticker";
                 break;
             case 7:
-                type = "Recipiente";
+                type = "Container";
+                break;
+            case 8:
+                type = "Agent";
                 break;
         }
         return new TableFragment(type);
@@ -48,6 +51,6 @@ public class MyViewPageAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 8;
+        return 9;
     }
 }
