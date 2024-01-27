@@ -12,6 +12,7 @@ import static br.com.envolvedesenvolve.cscolecaodeskins.db.SQLiteHelper.COLUMN_T
 import static br.com.envolvedesenvolve.cscolecaodeskins.db.SQLiteHelper.COLUMN_WEAR;
 import static br.com.envolvedesenvolve.cscolecaodeskins.db.SQLiteHelper.TABLE_SKINS;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
@@ -22,11 +23,28 @@ import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 public class SkinDao {
 
     private SQLiteDatabase database;
+    private static SkinDao instance;
 
-    // Construtor que recebe o banco de dados
-    public SkinDao(SQLiteDatabase database) {
-        this.database = database;
+    // Construtor privado para evitar múltiplas instâncias
+    private SkinDao(Context context) {
+        if (database == null) {
+            SQLiteHelper dbHelper = new SQLiteHelper(context);
+            database = dbHelper.getWritableDatabase();
+        }
     }
+
+    // Método estático para obter a única instância
+    public static synchronized SkinDao getInstance(Context context) {
+        if (instance == null) {
+            instance = new SkinDao(context);
+        }
+        return instance;
+    }
+
+//    // Construtor que recebe o banco de dados
+//    public SkinDao(SQLiteDatabase database) {
+//        this.database = database;
+//    }
 
     // Método que faz o SELECT e retorna uma List<Skin>
     public List<Skin> getAllSkins() {

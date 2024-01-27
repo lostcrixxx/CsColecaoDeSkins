@@ -32,12 +32,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.CsvAdapter;
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.MyViewPageAdapter;
 import br.com.envolvedesenvolve.cscolecaodeskins.db.SQLiteHelper;
 import br.com.envolvedesenvolve.cscolecaodeskins.db.SkinDao;
+import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 import br.com.envolvedesenvolve.cscolecaodeskins.view.SettingsActivity;
 
 /**
@@ -95,6 +97,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         recordsTextView.setText("Teste");
+
+        try {
+            Log.e(TAG, "passed onCreate() ");
+            for (Skin skin : SkinDao.getInstance(this).getAllSkins()) {
+                Log.e(TAG, "Skin: " + skin.getHashName());
+            }
+        } catch (Exception e){
+            Log.e(TAG, "ERRO onCreate() " + e.toString());
+            e.printStackTrace();
+        }
 
 
 //        recyclerView = findViewById(R.id.recyclerView);

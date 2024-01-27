@@ -13,6 +13,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.envolvedesenvolve.cscolecaodeskins.db.SkinDao;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
 public class Utils {

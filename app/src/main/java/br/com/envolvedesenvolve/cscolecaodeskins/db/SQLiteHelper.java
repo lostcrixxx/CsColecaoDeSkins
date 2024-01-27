@@ -22,7 +22,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CREATED_AT = "created_at";
 
     private static final String TABLE_CREATE =
-            "CREATE TABLE " + TABLE_SKINS + " (" +
+            "CREATE TABLE IF NOT EXISTS " + TABLE_SKINS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME + " TEXT, " +
                     COLUMN_HASH_NAME + " TEXT, " +
