@@ -19,6 +19,7 @@ import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 public class Utils {
 
     private static final String TAG = Utils.class.getName();
+
     private static Utils instance;
 
     public static final String URL_IMAGE = "https://community.cloudflare.steamstatic.com/economy/image/";

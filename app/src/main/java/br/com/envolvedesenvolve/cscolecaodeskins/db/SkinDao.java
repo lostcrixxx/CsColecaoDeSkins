@@ -22,6 +22,8 @@ import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
 
 public class SkinDao {
 
+    private static final String TAG = SkinDao.class.getName();
+
     private SQLiteDatabase database;
     private static SkinDao instance;
 
@@ -41,10 +43,19 @@ public class SkinDao {
         return instance;
     }
 
-//    // Construtor que recebe o banco de dados
-//    public SkinDao(SQLiteDatabase database) {
-//        this.database = database;
-//    }
+    // Método para verificar se a tabela skins está vazia
+    public boolean isSkinsTableEmpty() {
+        String countQuery = "SELECT COUNT(*) FROM " + TABLE_SKINS;
+        Cursor cursor = database.rawQuery(countQuery, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            int count = cursor.getInt(0); // pega o número de registros
+            cursor.close();
+            return count == 0; // retorna true se estiver vazia
+        }
+        return true; // se o cursor for nulo, também retorna true
+    }
 
     // Método que faz o SELECT e retorna uma List<Skin>
     public List<Skin> getAllSkins() {

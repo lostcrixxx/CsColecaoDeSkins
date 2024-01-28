@@ -20,6 +20,7 @@ import br.com.envolvedesenvolve.cscolecaodeskins.adapter.ViewAdapterList;
 public class TableFragment extends Fragment {
 
     private final String TAG = TableFragment.class.getName();
+
     private String type;
 
     private View view;

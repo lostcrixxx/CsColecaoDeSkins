@@ -3,11 +3,23 @@ package br.com.envolvedesenvolve.cscolecaodeskins.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.io.IOException;
+
+import br.com.envolvedesenvolve.cscolecaodeskins.Config;
+import br.com.envolvedesenvolve.cscolecaodeskins.MainActivity;
+import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "database.db";
+    private static final String TAG = SQLiteHelper.class.getName();
+
+    // Versão atual do banco de dados
     private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "database.db";
+
+    private final Context context;
 
     public static final String TABLE_SKINS = "skins";
     public static final String COLUMN_ID = "id";
@@ -37,6 +49,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -46,7 +59,16 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKINS);
-        onCreate(db);
+        if (newVersion > oldVersion) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SKINS);
+            onCreate(db); // ?
+
+            Log.e(TAG, "passed copyDatabaseToApp() new database.db");
+            try {
+                Utils.getInstance().copyDatabaseToApp(context);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

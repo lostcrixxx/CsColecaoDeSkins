@@ -50,6 +50,7 @@ import br.com.envolvedesenvolve.cscolecaodeskins.view.SettingsActivity;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getName();
+
     private boolean isNightModeOn;
 
     private TabLayout tabLayout;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        startFetching();
-        if (!Utils.getInstance().databaseExist(this)){
+        if (SkinDao.getInstance(this).isSkinsTableEmpty()){
             Log.e(TAG, "passed copyDatabaseToApp() new database.db");
             try {
                 Utils.getInstance().copyDatabaseToApp(this);
