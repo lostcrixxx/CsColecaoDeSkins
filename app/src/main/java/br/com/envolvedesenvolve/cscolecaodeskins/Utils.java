@@ -3,6 +3,7 @@ package br.com.envolvedesenvolve.cscolecaodeskins;
 import android.content.Context;
 import android.util.Log;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -80,5 +81,10 @@ public class Utils {
         outputStream.close();
         inputStream.close();
         Log.e(TAG, "passed close databases");
+    }
+
+    public boolean databaseExist(Context context) {
+        File dbFile = context.getDatabasePath("database.db");
+        return dbFile.exists();
     }
 }

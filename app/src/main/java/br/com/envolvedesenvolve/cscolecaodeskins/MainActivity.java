@@ -1,5 +1,7 @@
 package br.com.envolvedesenvolve.cscolecaodeskins;
 
+import static java.security.AccessController.getContext;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,6 +37,7 @@ import java.util.List;
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.CsvAdapter;
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.MyViewPageAdapter;
 import br.com.envolvedesenvolve.cscolecaodeskins.db.SQLiteHelper;
+import br.com.envolvedesenvolve.cscolecaodeskins.db.SkinDao;
 import br.com.envolvedesenvolve.cscolecaodeskins.view.SettingsActivity;
 
 /**
@@ -81,11 +85,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        startFetching();
-        try {
-            Utils.getInstance().copyDatabaseToApp(this);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!Utils.getInstance().databaseExist(this)){
+            Log.e(TAG, "passed copyDatabaseToApp() new database.db");
+            try {
+                Utils.getInstance().copyDatabaseToApp(this);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+        recordsTextView.setText("Teste");
+
 
 //        recyclerView = findViewById(R.id.recyclerView);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -149,9 +159,8 @@ public class MainActivity extends AppCompatActivity {
 
         while (true) {
             countTotalPageExecuted++;
-//            System.out.println("checking page: " + start / 100);
-            String urlString = String.format("https://steamcommunity.com/market/search/render/?start=%d&count=%d&sort_column=%s&sort_dir=%s&appid=%d&norender=2&language=portuguese",
-                    start, COUNT, SORT_COLUMN, SORT_DIR, APP_ID);
+            String urlString = Config.URL_STEAM + "?start=" + start + "&count=" + COUNT + "&sort_column=" + SORT_COLUMN + "&sort_dir=" + SORT_DIR + "&appid=" + APP_ID + "&norender=2&language=portuguese";
+
             try {
                 String jsonResponse = getHttpResponse(urlString);
                 JSONObject response = new JSONObject(jsonResponse);
