@@ -22,7 +22,6 @@ public class Utils {
 
     private static Utils instance;
 
-    public static final String URL_IMAGE = "https://community.cloudflare.steamstatic.com/economy/image/";
     public static boolean MODE_COLLECTION = false;
 
     public Utils() {

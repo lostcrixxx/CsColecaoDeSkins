@@ -1,6 +1,6 @@
 package br.com.envolvedesenvolve.cscolecaodeskins.adapter;
 
-import static br.com.envolvedesenvolve.cscolecaodeskins.Utils.URL_IMAGE;
+import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.URL_IMAGE;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import br.com.envolvedesenvolve.cscolecaodeskins.Configuration;
 import br.com.envolvedesenvolve.cscolecaodeskins.R;
 import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;

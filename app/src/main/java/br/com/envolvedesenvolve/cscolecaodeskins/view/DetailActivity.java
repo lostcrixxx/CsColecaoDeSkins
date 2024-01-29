@@ -1,8 +1,6 @@
 package br.com.envolvedesenvolve.cscolecaodeskins.view;
 
-import static br.com.envolvedesenvolve.cscolecaodeskins.Utils.URL_IMAGE;
-
-import androidx.appcompat.app.AppCompatActivity;
+import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.URL_IMAGE;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -11,9 +9,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.R;
 import br.com.envolvedesenvolve.cscolecaodeskins.Utils;

@@ -1,6 +1,6 @@
 package br.com.envolvedesenvolve.cscolecaodeskins;
 
-import static java.security.AccessController.getContext;
+import static br.com.envolvedesenvolve.cscolecaodeskins.Configuration.URL_STEAM;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,7 +32,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.adapter.CsvAdapter;
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 //        startFetching();
-        if (SkinDao.getInstance(this).isSkinsTableEmpty()){
+        if (SkinDao.getInstance(this).isSkinsTableEmpty()) {
             Log.e(TAG, "passed copyDatabaseToApp() new database.db");
             try {
                 Utils.getInstance().copyDatabaseToApp(this);
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             for (Skin skin : SkinDao.getInstance(this).getAllSkins()) {
                 Log.e(TAG, "Skin: " + skin.getHashName());
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             Log.e(TAG, "ERRO onCreate() " + e.toString());
             e.printStackTrace();
         }
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
         while (true) {
             countTotalPageExecuted++;
-            String urlString = Config.URL_STEAM + "?start=" + start + "&count=" + COUNT + "&sort_column=" + SORT_COLUMN + "&sort_dir=" + SORT_DIR + "&appid=" + APP_ID + "&norender=2&language=portuguese";
+            String urlString = URL_STEAM + "?start=" + start + "&count=" + COUNT + "&sort_column=" + SORT_COLUMN + "&sort_dir=" + SORT_DIR + "&appid=" + APP_ID + "&norender=2&language=portuguese";
 
             try {
                 String jsonResponse = getHttpResponse(urlString);
