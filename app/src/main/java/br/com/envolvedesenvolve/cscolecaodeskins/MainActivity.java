@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recordsTextView = findViewById(R.id.recordsTextView);
+//        recordsTextView = findViewById(R.id.recordsTextView);
 
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         Utils.getInstance().MODE_COLLECTION = prefs.getBoolean("modeCollection", false);
@@ -96,12 +97,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        recordsTextView.setText("Teste");
+//        recordsTextView.setText("Teste");
+
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        dataList = new ArrayList<>();
+
 
         try {
             Log.e(TAG, "passed onCreate() ");
             for (Skin skin : SkinDao.getInstance(this).getAllSkins()) {
-                Log.e(TAG, "Skin: " + skin.getHashName());
+//                Log.e(TAG, "Skin: " + skin.getHashName());
+                dataList.add(skin.getHashName());
             }
         } catch (Exception e) {
             Log.e(TAG, "ERRO onCreate() " + e.toString());
@@ -109,58 +118,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-//        recyclerView = findViewById(R.id.recyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//
-//        // Example data, replace with data from CSV
-//        dataList = new ArrayList<>();
-//        dataList.add("Line 1");
-//        dataList.add("Line 2");
-//        dataList.add("Line 3");
-//
-//        adapter = new CsvAdapter(dataList);
-//        recyclerView.setAdapter(adapter);
-//
+        adapter = new CsvAdapter(dataList);
+        recyclerView.setAdapter(adapter);
+
 //        // Add more data to simulate dynamic addition
 //        addMoreData("Line 4");
 ////        addMoreData("Line 5");
-
-
-//        DatabaseHelper dbHelper = new DatabaseHelper(this);
-//        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-
-//        tabLayout = findViewById(R.id.tab_layout);
-//        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
-//        viewPager2 = findViewById(R.id.view_pager);
-//        myViewPageAdapter = new MyViewPageAdapter(this);
-//        viewPager2.setAdapter(myViewPageAdapter);
-//
-//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                viewPager2.setCurrentItem(tab.getPosition());
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-//
-//        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-//            @Override
-//            public void onPageSelected(int position) {
-//                super.onPageSelected(position);
-//                tabLayout.getTabAt(position).select();
-//            }
-//        });
     }
 
     public void startFetching() {
