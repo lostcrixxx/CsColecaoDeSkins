@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home0"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home0" />
+        <item
+            android:id="@+id/nav_home1"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home1" />
+        <item
+            android:id="@+id/nav_home2"
+            android:icon="@drawable/ic_menu_construction"
+            android:title="@string/menu_home2" />
+        <item
+            android:id="@+id/nav_home3"
+            android:icon="@drawable/ic_menu_assist"
+            android:title="@string/menu_home3" />
+        <item
+            android:id="@+id/nav_home4"
+            android:icon="@drawable/ic_menu_truck"
+            android:title="@string/menu_home4" />
+        <item
+            android:id="@+id/nav_home5"
+            android:icon="@drawable/ic_menu_cleaning"
+            android:title="@string/menu_home5" />
+        <item
+            android:id="@+id/nav_home6"
+            android:icon="@drawable/ic_menu_color_lens"
+            android:title="@string/menu_home6" />
+        <item
+            android:id="@+id/nav_home7"
+            android:icon="@drawable/ic_menu_cake"
+            android:title="@string/menu_home7" />
+        <item
+            android:id="@+id/nav_home8"
+            android:icon="@drawable/ic_menu_fastfood"
+            android:title="@string/menu_home8" />
+        <item
+            android:id="@+id/nav_home9"
+            android:icon="@drawable/ic_menu_brush"
+            android:title="@string/menu_home9" />
+        <item
+            android:id="@+id/nav_home10"
+            android:icon="@drawable/ic_menu_baby"
+            android:title="@string/menu_home10" />
+    </group>
+</menu>

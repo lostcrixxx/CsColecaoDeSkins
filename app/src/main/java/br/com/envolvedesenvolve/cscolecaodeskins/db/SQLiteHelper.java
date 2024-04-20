@@ -7,8 +7,6 @@ import android.util.Log;
 
 import java.io.IOException;
 
-import br.com.envolvedesenvolve.cscolecaodeskins.Config;
-import br.com.envolvedesenvolve.cscolecaodeskins.MainActivity;
 import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 
 public class SQLiteHelper extends SQLiteOpenHelper {

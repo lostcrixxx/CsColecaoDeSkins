@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home1">
+
+    <fragment
+        android:id="@+id/nav_home1"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home1Fragment"
+        android:label="@string/menu_home1"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home2"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home2Fragment"
+        android:label="@string/menu_home2"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home3"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home3Fragment"
+        android:label="@string/menu_home3"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home4"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home4Fragment"
+        android:label="@string/menu_home4"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home5"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home5Fragment"
+        android:label="@string/menu_home5"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home6"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home6Fragment"
+        android:label="@string/menu_home6"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home7"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home7Fragment"
+        android:label="@string/menu_home7"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home8"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home8Fragment"
+        android:label="@string/menu_home8"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home9"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home9Fragment"
+        android:label="@string/menu_home9"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home10"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home10Fragment"
+        android:label="@string/menu_home10"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home11"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home11Fragment"
+        android:label="@string/menu_home11"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_home12"
+        android:name="br.com.envolvedesenvolve.cscolecaodeskins.view.Home12Fragment"
+        android:label="@string/menu_home12"
+        tools:layout="@layout/fragment_home" />
+
+</navigation>

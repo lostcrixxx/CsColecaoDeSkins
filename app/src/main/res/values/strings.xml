@@ -1,10 +1,32 @@
 <resources>
     <string name="app_name">CS2: Skins</string>
+    <string name="nav_header_title">CS2: Skins</string>
+    <string name="nav_header_subtitle">Database Counter Strike</string>
 
     <string name="menu_settings">Configurações</string>
     <string name="menu_rate">Rate</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_exit">Sair</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="action_settings">Configurações</string>
+    <string name="action_about">Sobre</string>
+    <string name="action_exit">Sair</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home0">Página Inicial</string>
+    <string name="menu_home1">Faca</string>
+    <string name="menu_home2">Faca</string>
+    <string name="menu_home3">Faca</string>
+    <string name="menu_home4">Faca</string>
+    <string name="menu_home5">Faca</string>
+    <string name="menu_home6">Faca</string>
+    <string name="menu_home7">Faca</string>
+    <string name="menu_home8">Faca</string>
+    <string name="menu_home9">Faca</string>
+    <string name="menu_home10">Faca</string>
+    <string name="menu_home11">Faca</string>
+    <string name="menu_home12">Faca</string>
 </resources>
