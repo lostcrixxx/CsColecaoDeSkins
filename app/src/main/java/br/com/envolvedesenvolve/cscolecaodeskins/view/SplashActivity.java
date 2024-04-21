@@ -39,7 +39,6 @@ import java.util.List;
 
 import br.com.envolvedesenvolve.cscolecaodeskins.ListSingleton;
 import br.com.envolvedesenvolve.cscolecaodeskins.MainActivity;
-import br.com.envolvedesenvolve.cscolecaodeskins.MainActivityOld;
 import br.com.envolvedesenvolve.cscolecaodeskins.R;
 import br.com.envolvedesenvolve.cscolecaodeskins.Utils;
 import br.com.envolvedesenvolve.cscolecaodeskins.model.Skin;
